@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsNumber, IsString, Min } from "class-validator";
+import { IsInt, IsNumber, IsString, Min } from "class-validator";
 
 export class CreateInventoryDto {
 
@@ -12,4 +12,9 @@ export class CreateInventoryDto {
     @Min(0)
     @Type(() => Number)
     public price: number;
+
+    @IsInt()
+    @Min(0)
+    @Type(() => Number)
+    public quantity: number;
 }

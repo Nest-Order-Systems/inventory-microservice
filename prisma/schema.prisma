@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -17,6 +17,7 @@ model Inventory{
   id Int @id @default(autoincrement())
   name String
   price Float
+  quantity Int @default(0)
   available Boolean @default(true)
 
   createdAt DateTime @default(now())
